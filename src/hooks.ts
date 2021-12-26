@@ -3,8 +3,7 @@ import { useEffectOnce } from "react-use";
 import { HassEntity, HassContext } from "./hassApi";
 
 export function useHassDevice(entityId: string) {
-
-    let api = useContext(HassContext);
+    const api = useContext(HassContext);
 
     const [state, setState] = useState<HassEntity | null>(null);
     useEffectOnce(() => {
@@ -23,4 +22,24 @@ export function useHassDevice(entityId: string) {
     });
 
     return state;
+}
+
+export function useApi() {
+    return useContext(HassContext);
+}
+
+export function useLight(lightId: string) {
+    const light = useHassDevice("light." + lightId);
+
+    if (!light) {
+        return null;
+    }
+
+    const { friendly_name, brightness, color } = light.attributes ?? {};
+    const api = useApi();
+
+    return [
+        { on: light.state === "on", friendly_name, brightness, color, state: light.state },
+        { setOn: () => api?.send("light", "turn_on", { entity_id: "light." + lightId }) },
+    ];
 }

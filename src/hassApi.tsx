@@ -1,6 +1,6 @@
 import hass, { HassApi } from "homeassistant-ws";
 import { EventEmitter } from "events";
-import { createContext } from "react";
+import { createContext, useMemo } from "react";
 
 export interface HassEntity {
     attributes: {
@@ -85,6 +85,7 @@ export const HassProvider: React.FC<{
     token: string;
     connectionOptions: ConnectionOptions;
 }> = ({ token, connectionOptions, children }) => {
-    const api = new HassApiConnection(token, connectionOptions);
+
+    const api = useMemo(() => new HassApiConnection(token, connectionOptions), [token, connectionOptions]);
     return <HassContext.Provider value={api}>{children}</HassContext.Provider>;
 };
