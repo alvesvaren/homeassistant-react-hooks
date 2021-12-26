@@ -1,12 +1,15 @@
 {
     "name": "homeassistant-react-hooks",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "A library providing hooks to easily integrate data from home assistant",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "repository": "https://github.com/alvesvaren/homeassistant-react-hooks",
     "author": "Alve Svarén",
     "license": "MIT",
+    "files": [
+        "dist"
+    ],
     "scripts": {
         "build": "tsc"
     },
