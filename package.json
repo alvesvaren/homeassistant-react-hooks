@@ -10,6 +10,12 @@
     "files": [
         "dist"
     ],
+    "keywords": [
+        "homeassistant",
+        "react-hooks",
+        "react",
+        "hass"
+    ],
     "scripts": {
         "build": "tsc"
     },
