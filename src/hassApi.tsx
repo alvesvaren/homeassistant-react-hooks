@@ -24,7 +24,7 @@ export interface ConnectionOptions {
     protocol: "ws" | "wss";
 }
 
-class Hass {
+export class HassApiConnection {
     emitter: EventEmitter;
     token: string;
     connectionOptions: ConnectionOptions;
@@ -77,14 +77,14 @@ class Hass {
         return await this.hassClient?.callService(domain, action, data);
     }
 }
-export default Hass;
+export default HassApiConnection;
 
-export const HassContext = createContext<Hass | null>(null);
+export const HassContext = createContext<HassApiConnection | null>(null);
 
 export const HassProvider: React.FC<{
     token: string;
     connectionOptions: ConnectionOptions;
 }> = ({ token, connectionOptions, children }) => {
-    const api = new Hass(token, connectionOptions);
+    const api = new HassApiConnection(token, connectionOptions);
     return <HassContext.Provider value={api}>{children}</HassContext.Provider>;
 };

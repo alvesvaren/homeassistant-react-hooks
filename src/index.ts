@@ -1,4 +1,2 @@
-import { ConnectionOptions, HassProvider } from "./hassApi";
-import { useHassDevice } from "./hooks";
-
-export { HassProvider, ConnectionOptions, useHassDevice };
+export { useHassDevice } from "./hooks";
+export { ConnectionOptions, HassContext, HassProvider, HassEntity, HassApiConnection } from "./hassApi";
