@@ -1,6 +1,6 @@
 {
     "name": "homeassistant-react-hooks",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "description": "A library providing hooks to easily integrate data from home assistant",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
