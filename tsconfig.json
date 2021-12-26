@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "target": "ES2015",
+        "module": "ESNext",
+        "declaration": true,
+        "outDir": "./lib",
+        "strict": true,
+        "jsx": "react-jsx",
+        "moduleResolution": "Node",
+        "allowSyntheticDefaultImports": true
+    },
+    "include": ["src"]
+}
