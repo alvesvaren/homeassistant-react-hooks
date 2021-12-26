@@ -2,6 +2,10 @@
 
 This is a collection of react hooks and apis to get state / push events to home assistant using websockets
 
+## Installation
+
+You can use this library by running either `yarn add homeassistant-react-hooks` or `npm i homeassistant-react-hooks`
+
 ## Code example
 
 ```tsx
