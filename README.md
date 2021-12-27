@@ -2,7 +2,7 @@
 
 This is a collection of react hooks and apis to get state / push events to home assistant using websockets.
 
-> Note: This library is WIP, many things are not amazingly stable, cleanly made and some things may not even work correctly.<br/>
+> Note: This library is really WIP, many things are not amazingly stable, cleanly made and some things may not even work correctly.<br/>
 > I might also create breaking changes without warning, so be careful if using this for anything important
 
 ## Installation
