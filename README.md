@@ -14,6 +14,7 @@ import { HassProvider, useHassDevice } from "homeassistant-react-hooks";
 // This should be loaded from an external file
 const config = {
     token: "HOME_ASSISTANT_ACCESS_TOKEN",
+    host: "example.com"
 };
 
 const App = () => {
@@ -22,11 +23,11 @@ const App = () => {
     const { media_title, media_artist, entity_picture } = kitchenPlayer?.attributes ?? {};
 
     return (
-        <HassProvider token={config.token} connectionOptions={{ host: "example.com", port: 443, protocol: "wss" }}>
+        <HassProvider token={config.token} connectionOptions={{ host: config.host, port: 443, protocol: "wss" }}>
             <div>
                 {media_title} - {media_artist}
             </div>
-            <img src={entity_picture} alt='Album artwork' />
+            <img src={"//" + config.host + entity_picture} alt='Album artwork' />
         </HassProvider>
     );
 };
