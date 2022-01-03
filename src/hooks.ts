@@ -78,7 +78,8 @@ export function useMediaPlayer(playerId: string, options?: Partial<{positionUpda
 }
 
 export function useLight(lightId: string) {
-    const light = useHassDevice("light." + lightId);
+    const entity_id = "light." + lightId;
+    const light = useHassDevice(entity_id);
 
     if (!light) {
         return null;
@@ -93,6 +94,7 @@ export function useLight(lightId: string) {
         brightness,
         color,
         state: light.state,
-        setOn: () => api?.send("light", "turn_on", { entity_id: "light." + lightId }),
+        setOn: () => api?.send("light", "turn_on", { entity_id }),
+        setOff: () => api?.send("light", "turn_off", { entity_id }),
     };
 }

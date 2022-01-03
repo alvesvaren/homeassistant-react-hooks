@@ -25,20 +25,20 @@ const config = {
 };
 
 const MediaPlayer = () => {
-	const { title, artist, imgUrl } = useMediaPlayer("kitchen");
+    const { title, artist, imgUrl } = useMediaPlayer("kitchen");
 
-	return (
-		<div className="media-player">
-			<h1>{title} - {artist}</h1>
-			<img src={imgUrl} alt="Artwork" />
-		</div>
-	);
+    return (
+        <div className="media-player">
+            <h1>{title} - {artist}</h1>
+            <img src={imgUrl} alt="Artwork" />
+        </div>
+    );
 }
 
 const App = () => {
     return (
         <HassProvider token={config.token} connectionOptions={{ host: config.host, port: 443, protocol: "wss" }}>
-			<MediaPlayer />
+            <MediaPlayer />
         </HassProvider>
     );
 };
