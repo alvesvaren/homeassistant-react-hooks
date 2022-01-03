@@ -5,6 +5,8 @@ This is a collection of react hooks and apis to get state / push events to home 
 > Note: This library is really WIP, many things are not amazingly stable, cleanly made and some things may not even work correctly.<br/>
 > I might also create breaking changes without warning, so be careful if using this for anything important
 
+[Package on NPM](https://www.npmjs.com/package/homeassistant-react-hooks)
+
 ## Installation
 
 You can use this library by running either `yarn add homeassistant-react-hooks` or `npm i homeassistant-react-hooks`
