@@ -37,7 +37,9 @@ export function useWeather(weatherSourceId: string) {
     return { humidity, temperature, wind_speed, wind_bearing, today, state: weatherData?.state || null };
 }
 
-export function useMediaPlayer(playerId: string) {
+export function useMediaPlayer(playerId: string, options?: Partial<{positionUpdateIntervalMs: number}>) {
+    options = {positionUpdateIntervalMs: 200, ...options}
+
     const [realPosition, setRealPosition] = useState(0);
     const playerData = useHassDevice("media_player." + playerId);
 
@@ -49,7 +51,7 @@ export function useMediaPlayer(playerId: string) {
             media_position +
             ((isPlaying ? new Date().getTime() : new Date(media_position_updated_at).getTime()) - new Date(media_position_updated_at).getTime()) / 1000;
         setRealPosition(currentRealPosition);
-    }, 200);
+    }, options.positionUpdateIntervalMs);
 
     const api = useContext(HassContext);
 
