@@ -9,32 +9,42 @@ This is a collection of react hooks and apis to get state / push events to home 
 
 You can use this library by running either `yarn add homeassistant-react-hooks` or `npm i homeassistant-react-hooks`
 
-## Code example
+## Examples
+
+### Code example
 
 ```tsx
 import { HassProvider, useHassDevice } from "homeassistant-react-hooks";
 
-// This should be loaded from an external file
+// This should be loaded from an external file (to not expose secrets in for example version control)
 const config = {
     token: "HOME_ASSISTANT_ACCESS_TOKEN",
     host: "example.com",
 };
 
+const MediaPlayer = () => {
+	const { title, artist, imgUrl } = useMediaPlayer("kitchen");
+
+	return (
+		<div className="media-player">
+			<h1>{title} - {artist}</h1>
+			<img src={imgUrl} alt="Artwork" />
+		</div>
+	);
+}
+
 const App = () => {
-    const kitchenPlayer = useHassDevice("media_player.kitchen");
-
-    const { media_title, media_artist, entity_picture } = kitchenPlayer?.attributes ?? {};
-
     return (
         <HassProvider token={config.token} connectionOptions={{ host: config.host, port: 443, protocol: "wss" }}>
-            <div>
-                {media_title} - {media_artist}
-            </div>
-            <img src={"//" + config.host + entity_picture} alt='Album artwork' />
+			<MediaPlayer />
         </HassProvider>
     );
 };
 ```
+
+### Projects using this module
+
+ - [alvesvaren/pihubv3](https://github.com/alvesvaren/pihubv3)
 
 ## Hooks
 
