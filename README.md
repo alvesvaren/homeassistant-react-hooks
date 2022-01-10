@@ -11,6 +11,10 @@ This is a collection of react hooks and apis to get state / push events to home 
 
 You can use this library by running either `yarn add homeassistant-react-hooks` or `npm i homeassistant-react-hooks`
 
+### Token
+
+To create a token that can be used with this, go to your [user profile](https://my.home-assistant.io/redirect/profile/) and scroll down to the bottom where you can create a token.
+
 ## Examples
 
 ### Code example
