@@ -84,6 +84,7 @@ export const HassContext = createContext<HassApiConnection | null>(null);
 export const HassProvider: React.FC<{
     token: string;
     connectionOptions: ConnectionOptions;
+    children: React.ReactNode;
 }> = ({ token, connectionOptions, children }) => {
     const api = useMemo(
         () => new HassApiConnection(token, connectionOptions),

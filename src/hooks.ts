@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { useEffectOnce, useInterval } from "react-use";
+import { useEffectOnce, useInterval } from "usehooks-ts";
 import { HassEntity, HassContext } from "./hassApi";
 
 export function useHassDevice(entityId: string) {
@@ -51,7 +51,7 @@ export function useMediaPlayer(playerId: string, options?: Partial<{positionUpda
             media_position +
             ((isPlaying ? new Date().getTime() : new Date(media_position_updated_at).getTime()) - new Date(media_position_updated_at).getTime()) / 1000;
         setRealPosition(currentRealPosition);
-    }, options.positionUpdateIntervalMs);
+    }, options.positionUpdateIntervalMs || null);
 
     const api = useContext(HassContext);
 
