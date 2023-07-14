@@ -1,6 +1,7 @@
 # HomeAssistant React Hooks
 
 This is a collection of react hooks and apis to get state / push events to home assistant using websockets.
+It can be used to for example create custom dashboards that integrate with home assistant.
 
 [Package on NPM](https://www.npmjs.com/package/homeassistant-react-hooks)
 
